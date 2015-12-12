@@ -1,4 +1,8 @@
 use Perl::OS;
 
-Perl::OS::abort();
-print "Hello\n";
+sub abort {
+	Perl::OS::abort();
+	return 1000; #this line should not execute
+}
+
+die if (abort() == 1000);
